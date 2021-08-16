@@ -1,0 +1,80 @@
+<!-- 导航 -->
+<view>
+    <navititlebar bind:myevent="backTo" params="{{narParams}}" titleText="{{titlebar}}"></navititlebar>
+</view>
+
+<view
+    class ="option_container">
+<!-- 内容填写 -->
+    <view
+        class ="option_content_container option_content_container_show">
+        <form
+            class ="option_form"
+            catchsubmit ="formSubmit">
+            <!-- 获奖日期 -->
+            <view
+                class ="option_sub_content_container row_flex_contariner">
+                <view
+                    class= "mark_label">*</view>
+                <view
+                    class ="option_content_subtitle">{{award_date}}</view>
+                <picker
+                    class ="option_content_value"
+                    name ="date"
+                    data-name="date" 
+                    mode ="date" 
+                    value ="{{date}}" 
+                    start ="1950-01-01" 
+                    end = "2050-09-01" 
+                    fields ="month"
+                    bindchange ="choose_para">{{date}}</picker></view>
+            <!-- 奖励名称 -->
+            <view
+                class ="option_sub_content_container row_flex_contariner">
+                <view
+                    class= "mark_label">*</view>
+                <view
+                    class ="option_content_subtitle">{{award_title}}</view>
+                <input
+                    class ="option_content_value"
+                    name ="title"
+                    data-name="title"
+                    value ="{{title}}"
+                    type ="text"
+                    bindinput ="input_fun"
+                    maxlength =64
+                    bindblur ="choose_para"></input></view>
+            <!-- 奖励描述 -->
+            <view
+                class ="option_sub_content_container row_flex_contariner flex_top">
+                <view
+                    class= "mark_label"></view>
+                <view
+                    class ="option_content_subtitle">{{award_intro}}</view>
+                <textarea
+                    class ="option_content_value_textarea"
+                    name ="intro"
+                    data-name ="intro"
+                    value ="{{intro}}"
+                    maxlength =512
+                    bindinput ="input_fun"
+                    bindblur ="choose_para"></textarea></view>        
+
+
+            <view class="mini-buttons">
+                <!-- 保存信息 -->
+                <button 
+                    class="mini-btn"
+                    type="primary"
+                    size="mini"
+                    bindtap ="formSubmit">{{button_save}}</button>
+                <!-- 删除信息 -->
+                <button 
+                    class="mini-btn" 
+                    type="default" 
+                    size="mini"
+                    bindtap="delete_edu_info"
+                    disabled ="{{is_disable}}">{{button_delete}}</button></view>
+        </form>
+    </view>
+</view>

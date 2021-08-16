@@ -1,0 +1,11 @@
+.choose_scroll{
+    width: 100%;
+    height: auto;
+    display: flex; 
+    flex-direction:row;
+}
+.choose_item{
+    background-color: #42e24a;
+    width: 150rpx;
+    text-align: center;
+}

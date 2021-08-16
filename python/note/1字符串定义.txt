@@ -1,0 +1,31 @@
+三重引号：
+'''the day before yesterday i saw a deer,
+   and yesterday a rabbit,
+   and today you.'''
+
+保留所有引号、制表符、回车等任何信息的字符串
+
+
+不论是单引号，还是双引号，都要成对使用。
+双引号里面可以解析单引号，单引号里面也可以解析双引号。
+但单引号里面不能解析单引号，双引号里面不能解析双引号。
+
+
+正常字符串：
+string_test ='the day before yesterday i saw a deer, and yesterday a rabbit,and today you.'
+print (string_test[0])
+print (string_test[-1])
+print (string_test[0:37])
+print (string_test[0:10:2])  #最后一个2为步长
+>>>
+t
+.
+the day before yesterday i saw a deer
+tedyb
+
+
+字符串重复（乘法*):
+'***'*5
+>>>***************
+
+

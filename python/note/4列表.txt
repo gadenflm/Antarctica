@@ -1,0 +1,41 @@
+二维列表：
+list_test=[[1,3,5],['aa','bb','c'],[1,'bb',5]]
+print(list_test[0])
+print(list_test[2][1])
+>>>
+[1, 3, 5]
+bb
+
+
+列表方法：
+index(x)  返回与x值相等的第一个元素位置索引
+count(x)  返回x出现的个数
+append(x)  列表结尾添加
+pop（）   列表结尾删除
+pop（index） 删除索引位置的元素并返回该项
+insert（index，x）  索引位置处插入x
+remove(x）  删除第一次出现的x
+sort（）   排序
+reverse（）   反向
+
+
+
+！！！！！！！链表的默认传递方式是传递地址： ！！！！！！！！！！！！！！！！
+
+例：
+list_1=[1,2,3,4]
+list_2=list_1
+list_1.append(5)
+
+print(list_2)
+>>>
+[1, 2, 3, 4, 5]
+
+
+若要复制列表，可使用  [:]：
+list_1=[1,2,3,4]
+list_2=list_1[:]     #产生一个新的地址空间
+list_1.append(5)
+print(list_2)
+>>>
+[1, 2, 3, 4]

@@ -1,0 +1,144 @@
+<!-- 导航 -->
+<view>
+    <navititlebar bind:myevent="backTo" params="{{narParams}}" titleText="{{titlebar}}"></navititlebar>
+</view>
+<view
+    class ="option_container">
+<!-- 内容填写 -->
+    <view
+        class ="option_content_container option_content_container_show">
+        <form
+            class ="option_form"
+            catchsubmit ="formSubmit">
+            <!-- 入学时间 -->
+            <view
+                class ="option_sub_content_container row_flex_contariner">
+                <view
+                    class= "mark_label">*</view>
+                <view
+                    class ="option_content_subtitle">{{edu_start_date}}</view>
+                <picker
+                    class ="option_content_value"
+                    name ="start_date"
+                    data-name="start_date" 
+                    mode ="date" 
+                    value ="{{start_date}}" 
+                    start ="1950-01" 
+                    end = "2050-09" 
+                    fields ="month"
+                    bindchange ="choose_para">{{start_date}}</picker></view>
+            <!-- 毕业时间 -->
+            <view
+                class ="option_sub_content_container row_flex_contariner">
+                <view
+                    class= "mark_label">*</view>
+                <view
+                    class ="option_content_subtitle">{{edu_end_date}}</view>
+                <picker
+                    class ="option_content_value"
+                    name ="end_date"
+                    data-name="end_date" 
+                    mode ="date" 
+                    value ="{{end_data}}" 
+                    start ="1950-01" 
+                    end = "2050-09" 
+                    fields ="month"
+                    bindchange ="choose_para">{{end_date}}</picker></view>
+            <!-- 学校 -->
+            <view
+                class ="option_sub_content_container row_flex_contariner">
+                <view
+                    class= "mark_label">*</view>
+                <view
+                    class ="option_content_subtitle">{{edu_sch_name}}</view>
+                <input
+                    class ="option_content_value"
+                    name ="sch_name"
+                    data-name="sch_name"
+                    value ="{{sch_name}}"
+                    type ="text"
+                    bindinput ="input_fun"
+                    maxlength =64
+                    bindblur ="choose_para"></input></view>
+            <!-- 学院 -->
+            <view
+                class ="option_sub_content_container row_flex_contariner">
+                <view
+                    class= "mark_label"></view>
+                <view
+                    class ="option_content_subtitle">{{edu_academy}}</view>
+                <input
+                    class ="option_content_value"
+                    name ="academy"
+                    data-name="academy"
+                    value ="{{academy}}"
+                    type ="text"
+                    bindinput ="input_fun"
+                    maxlength =64
+                    bindblur ="choose_para"></input></view>
+            <!-- 专业 -->
+            <view
+                class ="option_sub_content_container row_flex_contariner">
+                <view
+                    class= "mark_label"></view>
+                <view
+                    class ="option_content_subtitle">{{edu_major}}</view>
+                <input
+                    class ="option_content_value"
+                    name ="major"
+                    data-name="major"
+                    value ="{{major}}"
+                    type ="text"
+                    bindinput ="input_fun"
+                    maxlength =64
+                    bindblur ="choose_para"></input></view>
+            <!-- 学位 -->
+            <view
+                class ="option_sub_content_container row_flex_contariner">
+                <view
+                    class= "mark_label"></view>
+                <view
+                    class ="option_content_subtitle">{{edu_degree}}</view>
+                <input
+                    class ="option_content_value"
+                    name ="degree"
+                    data-name="degree"
+                    value ="{{degree}}"
+                    type ="text"
+                    bindinput ="input_fun"
+                    maxlength =64
+                    bindblur ="choose_para"></input></view>
+            <!-- 研究方向 -->
+            <view
+                class ="option_sub_content_container row_flex_contariner">
+                <view
+                    class= "mark_label"></view>
+                <view
+                    class ="option_content_subtitle">{{edu_research_target}}</view>
+                <input
+                    class ="option_content_value"
+                    name ="research_target"
+                    data-name="research_target"
+                    value ="{{research_target}}"
+                    type ="text"
+                    bindinput ="input_fun"
+                    maxlength =64
+                    bindblur ="choose_para"></input></view>
+            <!-- 按钮 -->
+            <view class="mini-buttons">
+                <!-- 保存信息 -->
+                <button 
+                    class="mini-btn"
+                    type="primary"
+                    size="mini"
+                    bindtap ="formSubmit">{{button_save}}</button>
+                <!-- 删除信息 -->
+                <button 
+                    class="mini-btn" 
+                    type="default" 
+                    size="mini"
+                    bindtap="delete_edu_info"
+                    disabled ="{{is_disable}}">{{button_delete}}</button></view>
+        </form>
+    </view>
+</view>

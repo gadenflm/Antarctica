@@ -1,0 +1,12 @@
+{
+    "setting":
+    {
+        "urlCheck": true,
+        "es6": true,
+        "postcss": true,
+        "minified": true,
+        "newFeature": true
+    },
+    "appid": "cli_a0ec086d75f8500d",
+    "projectname": "UESTC_mapp"
+}

@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>zhuceDialog</class>
+ <widget class="QDialog" name="zhuceDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>491</width>
+    <height>503</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QPushButton" name="okButton">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>449</y>
+     <width>473</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>确定</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="cancelButton">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>475</y>
+     <width>473</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>取消</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_user_name">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>79</y>
+     <width>48</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>用户名：</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_password">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>123</y>
+     <width>36</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>密码：</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_kind">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>35</y>
+     <width>156</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>请选择您要注册的用户类型：</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox_kind">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>9</y>
+     <width>62</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="editable">
+    <bool>false</bool>
+   </property>
+   <item>
+    <property name="text">
+     <string>学生</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>老师</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="label_password_1">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>167</y>
+     <width>60</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>密码确认：</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_name">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>255</y>
+     <width>36</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>姓名：</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_id">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>273</y>
+     <width>78</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>学号/职工号：</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_sex">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>211</y>
+     <width>36</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>性别：</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox_sex">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>185</y>
+     <width>38</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="editable">
+    <bool>false</bool>
+   </property>
+   <item>
+    <property name="text">
+     <string>男</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>女</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>嬲</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="label_single">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>317</y>
+     <width>60</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>是否单身：</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox_single">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>335</y>
+     <width>69</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>我是单身狗！！</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>我是恩爱狗！！</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QComboBox" name="comboBox_campus">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>361</y>
+     <width>69</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>清水河校区</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>沙河校区</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QComboBox" name="comboBox_academy">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>423</y>
+     <width>69</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>通信工程</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>电子工程</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>自动化</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>计算机科学与技术</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>光学与电子信息学院</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>机械电子工程</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>生命科学与技术</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>资源环境管理</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>外国语</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="label_campus">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>387</y>
+     <width>30</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>校区:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_academy">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>405</y>
+     <width>36</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>学院：</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_user_name">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>53</y>
+     <width>133</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_password">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>97</y>
+     <width>133</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="echoMode">
+    <enum>QLineEdit::Password</enum>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_password_1">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>141</y>
+     <width>133</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="echoMode">
+    <enum>QLineEdit::Password</enum>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_name">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>229</y>
+     <width>133</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_id">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>291</y>
+     <width>133</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

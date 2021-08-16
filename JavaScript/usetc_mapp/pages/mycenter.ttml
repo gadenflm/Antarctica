@@ -1,0 +1,117 @@
+<view>
+    <navititlebar params="{{narParams}}" titleText="{{titlebar}}"></my-component>
+</view>
+<view
+    class ="center-background"
+    >
+    <view
+        style ="">
+        <image 
+            class ="HeadPortrait"
+            id ="brain"
+            src="{{image_src}}"
+            mode ="aspectFit"
+        />
+        <view
+            style ="display:flex;flex-direction:row;align-items: baseline;">
+            <view 
+                class ="Name">{{nickname_src}}</view>
+            <view 
+                class ="School">{{school}}</view>
+        </view>
+
+        <view
+            style ="display:flex;flex-direction:row;align-items: baseline;">
+            <view
+                class ="basic_info_warning" tt:if="{{!isComplete}}">{{please_complete}}</view>
+        </view>
+    </view>
+
+
+
+    <view
+        class ="concern-box">
+        <view 
+            style ="flex-direction:row;display:flex;">
+            <view style ="width:100rpx;margin-left:15rpx;text-align:center;display:inline-block">{{focus_work}}</view>
+            <view style ="width:100rpx;margin-left:15rpx;text-align:center;display:inline-block">{{focus_game}}</view>
+            <view style ="width:100rpx;margin-left:15rpx;margin-right:15rpx;text-align:center;display:inline-block">{{focus_certificate}}</view>
+        </view>
+        <view 
+            style ="flex-direction:row;display:flex;">
+            <view style ="width:100rpx;margin-left:15rpx;text-align:center;display:inline-block">1</view>
+            <view style ="width:100rpx;margin-left:15rpx;text-align:center;display:inline-block">2</view>
+            <view style ="width:100rpx;margin-left:15rpx;margin-right:15rpx;text-align:center;display:inline-block">3</view>
+        </view>
+    </view>
+
+    
+</view>
+
+
+
+<view style="padding:10rpx 10rpx">
+    <block tt:for ="{{mList}}">
+        <view>
+            <view >
+                <button
+                    class ="function_button"
+                    type ="default"
+                    size ="default"
+                    bindtap ="button_fun"
+                    data-url ="{{item.page}}"
+                    >{{item.name}}</button>
+            </view>
+        </view>
+    </block>
+    <button
+        class ="function_button"
+        type ="default"
+        size ="default"
+        bindtap ="change_image_fun"
+        style ="display:none;"
+        >测试：更改头像（移动到头像功能)</button>
+    <button
+        class ="function_button"
+        type ="default"
+        size ="default"
+        bindtap ="feedback_fun"
+        >测试：反馈</button>
+    <button
+        class ="function_button"
+        type ="default"
+        size ="default"
+        bindtap ="about_fun"
+        >测试：关于</button>
+    <button
+        class ="function_button"
+        type ="default"
+        size ="default"
+        bindtap ="load_fun"
+        >测试：loading...</button>
+    <button
+        class ="function_button"
+        type ="default"
+        size ="default"
+        bindtap ="hide_load_fun"
+        >测试：hide loading...</button>
+    <button
+        class ="function_button"
+        type ="default"
+        size ="default"
+        bindtap ="show_modal"
+        >测试：show_modal...</button>
+    <button
+        class ="function_button"
+        type ="default"
+        size ="default"
+        bindtap ="show_action_sheet"
+        >测试：show_action_sheet...</button>
+    <button
+        class ="function_button"
+        type ="default"
+        size ="default"
+        bindtap ="test_js_fun"
+        >测试：js...</button>
+</view>
+

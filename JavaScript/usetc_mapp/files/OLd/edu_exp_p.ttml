@@ -1,0 +1,92 @@
+<view>
+    <view 
+        class ="display_block">
+        <view>
+            模板：
+        </view>
+    </view>
+    <block tt:for ="{{show_array}}" >
+        <view class ="kind-item-hd {{!item.is_show?'kind-list-item-hd-show':'kind-list-item-hd-hide'}}" bindtap="show_msg">
+            <view class ="navigator"> 
+                <view class ="navigator-text">姓名:基本信息</view>
+                <view class ="navigator-arrow"></view>
+            </view> 
+        </view>
+
+        <view class ="kind-list-item-bd {{item.is_show?'kind-list-item-bd-show':' '}}">
+            <view class="navigator-box {{item.is_show?'navigator-box-show':' '}}">
+                <form class ="form-section" catchsubmit="formSubmit" data-index ="{{index}}">
+                    <view  class ="page-section-info">
+                        <view class ="page-section-info-title" >入学时间:</view>
+                        <picker
+                            class ="page-section-info-value" data-name ="start_date" data-index ="{{index}}" 
+                            name ="start_date"
+                            mode ="date" value ="1995-01-01" start ="1950-01-01" end = "2050-09-01" 
+                            fields ="day" bindchange ="choose_para">
+                            <view class ="page-section-info-value">{{show_array[index].data.start_date}}</view>
+                        </picker>
+                    </view>
+                    
+                    <view  class ="page-section-info">
+                        <view class ="page-section-info-title" >毕业时间:</view>
+                        <picker
+                            class ="page-section-info-value" data-name ="end_date" data-index ="{{index}}" 
+                            name ="end-date"
+                            mode ="date" value ="1995-01-01" start ="1950-01-01" end = "2050-09-01" 
+                            fields ="day" bindchange ="choose_para">
+                            <view class ="page-section-info-value">{{show_array[index].data.end_date}}</view>
+                        </picker>
+                    </view>
+
+                    <view  class ="page-section-info">
+                        <view class ="page-section-info-title" >学校:</view>
+                        <input
+                            class ="page-section-info-value" data-name ="academy" data-index ="{{index}}" 
+                            name ="academy"
+                            value ="{{show_array[index].data.academy}}"btype ="text" bindinput ="input_fun"
+                            bindblur ="choose_para">
+                        </input>
+                    </view>
+
+                    <view  class ="page-section-info">
+                        <view class ="page-section-info-title" >专业:</view>
+                        <input
+                            class ="page-section-info-value" data-name ="major" data-index ="{{index}}" 
+                            name ="major"
+                            value ="{{show_array[index].data.major}}"btype ="text" bindinput ="input_fun"
+                            bindblur ="choose_para">
+                        </input>
+                    </view>
+
+                    <view  class ="page-section-info">
+                        <view class ="page-section-info-title" >学位:</view>
+                        <input
+                            class ="page-section-info-value" data-name ="degree" data-index ="{{index}}" 
+                            name ="degree"
+                            value ="{{show_array[index].data.degree}}"btype ="text" bindinput ="input_fun"
+                            bindblur ="choose_para">
+                        </input>
+                    </view>
+
+                    <view  class ="page-section-info">
+                        <view class ="page-section-info-title" >研究方向:</view>
+                        <input
+                            class ="page-section-info-value" data-name ="research_target" data-index ="{{index}}" 
+                            name ="research_target"
+                            value ="{{show_array[index].data.research_target}}"btype ="text" bindinput ="input_fun"
+                            bindblur ="choose_para">
+                        </input>
+                    </view>
+
+                    <button 
+                        class ="page-section-info-sure"
+                        form-type ="submit">保存信息</button>
+                </form>
+            </view>
+        </view>
+    </block>
+    <button bindtap="add_information" 
+             >添加信息</button>
+    <button bindtap="updata_info">保存信息</button>
+            
+</view>

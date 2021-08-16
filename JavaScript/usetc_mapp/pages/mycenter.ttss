@@ -1,0 +1,70 @@
+body {
+    background-color: lemonchiffon;
+  }
+.center-background{
+    background-image: linear-gradient(
+        10deg,
+        #00D0B6 0%,#46EBD5 10%, #FFFFFF 45%,#FFFFFF 50%);
+        padding-left:60rpx;padding-right:60rpx;padding-top:32rpx;
+}
+.HeadPortrait{
+    /* position: absolute; */
+    border-radius: 50%;
+    height: 180rpx;
+    width: 180rpx;
+    /* left: 550rpx;
+    top: 16rpx; */
+    float:right;
+
+}
+.Name{
+    font-family:sans-serif;
+    font-weight: bold;
+    font-size:40rpx;
+    color: #000;
+    display: inline-block;
+    
+}
+.School{
+    padding-left:40rpx;
+    
+    font-family:sans-serif;
+    font-weight: normal;
+    font-size: medium;
+    color: #999;
+    display: inline-block;
+}
+.StudentNumber{
+    margin-top: 16rpx;
+
+    font-family:sans-serif;
+    font-weight: normal;
+    font-size: 20rpx;
+    color: #999;
+    display: inline-block;
+}
+.basic_info_warning{
+    margin-left: 30rpx;
+    color: #F00;
+    font-weight: normal;
+    font-size: 20rpx;
+    display: inline-block;
+}
+.function_button{
+    color: black;
+    background-color: white;
+}
+.function_button:after{
+    border-color: #D8D8D8;
+    border-radius: 40px solid;
+}
+.scroll{
+    height: 200px;
+}
+.concern-box{
+    margin-top:50rpx;
+    margin-bottom:20rpx;
+    display:inline-block;
+    border-top-left-radius: 50rpx;
+    border-top-right-radius: 50rpx;
+}

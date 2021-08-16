@@ -1,0 +1,36 @@
+<!-- 导航栏 -->
+<view>
+    <navititlebar params="{{narParams}}" titleText="{{titlebar}}"></navititlebar>
+</view>
+<!-- 指导语 -->
+<view
+    class ="instruction_container">
+    <view
+        class ="instruction_text">{{example_add}}</view>
+</view>
+<!-- 展示信息 -->
+<view
+    class ="display_container">
+    <block tt:for ="{{show_array}}" >
+        <view
+            class ="display_block row_flex_contariner"
+            bindtap ="show_msg"
+            data-index ="{{index}}">
+            <view
+                class ="display_block_text_container">
+                <view
+                    class ="display_block_text_date">{{item.data.start_date}} --- {{item.data.end_date}}</view>
+                <view
+                    class ="display_block_text_title">{{item.data.project_name}}</view>
+            </view>
+            <image
+                class ="display_block_img_arrow zhdpi_icon_img"
+                src ="{{src_arrow}}"
+                mode ="aspectFit"></image>
+        </view>
+    </block>
+</view>
+<!-- 添加信息 -->
+<view
+    class ="button_add"
+    bindtap="add_information">{{button_add_info}}</view>

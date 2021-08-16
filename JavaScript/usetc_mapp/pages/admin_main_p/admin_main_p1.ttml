@@ -1,0 +1,96 @@
+<!-- 导航栏 -->
+<view>
+    <navititlebar params="{{narParams}}" titleText="{{titlebar}}"></navititlebar>
+</view>
+<!-- 用户搜索以确认admin -->
+<view 
+    class ="search_box">
+    <!-- 标题 -->
+    <!-- 搜索栏与搜索按键 -->
+    <view
+        class ="search_container">
+        <input
+            class ="search_input" data-name ="user_name"
+            name ="user_name" placeholder="{{title_user}}"
+            value ="{{user_name}}" btype ="text" bindinput ="input_fun" maxlength =64
+            bindblur ="choose_para">
+        </input>    
+        <image 
+            class ="search_img"
+            bindtap="getNameArray"
+            src ="{{image_scr_array[image_src_user_index].src}}"
+            mode ="aspectFit"></image>
+    </view>
+    <!-- 用户展示列表 -->
+    <view
+        class ="search_info_box" style="display:{{user_find_array.length==0?'none':' '}}">
+        <block tt:for="{{user_find_array}}">
+            <view
+                class ="search_info_container">
+                <view
+                    class ="search_info_value" 
+                    bindtap="choose_which_user"
+                    data-user ="{{item}}"
+                    >phone:{{item.phone_num}}</view>
+                <switch
+                    class ="search_info_switch"
+                    checked="{{item.is_admin}}"
+                    data-user="{{index}}"
+                    type="swich"
+                    bindchange="change_admin"
+                    ></switch>            
+            </view>
+        </block>
+    </view>
+</view>
+<!-- 展示已有（搜索）的Event -->
+<view 
+    class ="search_box">
+    <!-- 搜索栏与搜索按键 -->
+    <view
+        class ="search_container">
+        <input
+            class ="search_input" 
+            data-name ="event_name"
+            name ="event_name" placeholder="{{title_event}}"
+            value ="{{event_name}}"btype ="text" bindinput ="input_fun" maxlength =64
+            bindblur ="choose_para"></input>
+        <image 
+            class ="search_img"
+            bindtap="getEventArray"
+            src ="{{image_scr_array[image_src_event_index].src}}"
+            mode ="aspectFit"></image>
+    </view>
+    
+</view>
+<view class="search_box narrow_border">
+    <!-- Event展示列表 -->
+    <view
+        class ="search_info_box" style="display:{{event_array.length==0?'none':' '}}">
+        <block tt:for="{{event_array}}">
+            <view
+                class ="search_info_container">
+                <view 
+                    class ="block_show_info event_info"
+                    bindtap ="choose_which_event" 
+                    data-eventIndex="{{index}}">{{item.name}}</view>
+            </view>
+        </block>    
+    </view>
+    <!-- Event 如果为空 -->
+    <view
+        class ="show_info_empty" style="display:{{event_array.length!=0?'none':' '}}">
+        {{show_info_empty}}</view>
+    <!-- 增加Event -->
+    <view
+        class ="button_add"
+        bindtap="goto_add_event">
+        {{title_add_event}}</view>
+</view>
+<!-- 增加Event float -->
+<view>
+    <view
+        class ="button_add"
+        bindtap="goto_add_event">
+        {{title_add_event}}</view>
+</view>

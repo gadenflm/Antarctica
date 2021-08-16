@@ -1,0 +1,43 @@
+<view>
+    <navititlebar params="{{narParams}}" titleText="{{titlebar}}"></navititlebar>
+</view>
+
+<!-- 资料完成度 -->
+<view
+    class ="head">
+    <!-- 文字 -->
+    <view
+        class ="head_text">{{title_pre}}{{completeness}}</view>
+    <!-- 图片 -->
+    <view
+        class ="head_container_img">
+        <image
+            class ="head_image"
+            mode ="aspectFit"
+            src ="../../files/resume.png"
+            >
+        </image>
+    </view>
+</view>
+
+<view
+    class ="block_container">
+    <block tt:for ="{{user_resume_info_list}}">
+        <view 
+            class ="block_item_container"
+            data-url ="{{item.page}}"
+            bindtap ="button_fun">
+            <image
+                class ="block_item_img xhdpi_icon_img"
+                mode ="aspectFit"
+                src ="../../files/icon/xhdpi/5-content-event.png"></image>
+            <view
+                class ="block_item_text">{{item.name}}
+            </view>
+            <image
+                class ="block_item_insert hdpi_icon_img"
+                mode ="aspectFit"
+                src ="../../files/icon/xhdpi/1-navigation-next-item.png"></image>
+        </view>
+    </block>
+</view>

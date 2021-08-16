@@ -1,0 +1,5 @@
+caxis([-30 80]);
+colormap(fi,[repmat([1 0 0],4,1); repmat([0 1 0],7,1)]);
+colorbarpara =colorbar;
+colorbarpara.TickLabels{end} ='80 SNR(dB)';
+saveas(fi,'12.jpg');

@@ -1,0 +1,63 @@
+<!-- 导航 -->
+<view>
+    <navititlebar bind:myevent="backTo" params="{{narParams}}" titleText="{{titlebar}}"></navititlebar>
+</view>
+
+<view
+    class ="option_container">
+<!-- 内容填写 -->
+    <view
+        class ="option_content_container option_content_container_show">
+        <form
+            class ="option_form"
+            catchsubmit ="formSubmit">
+            <!-- 技能名称 -->
+            <view
+                class ="option_sub_content_container row_flex_contariner">
+                <view
+                    class= "mark_label">*</view>
+                <view
+                    class ="option_content_subtitle">{{skill_name}}</view>
+                <input
+                    class ="option_content_value"
+                    name ="name"
+                    data-name="name"
+                    value ="{{name}}"
+                    type ="text"
+                    bindinput ="input_fun"
+                    maxlength =64
+                    bindblur ="choose_para"></input></view>
+            <!-- 熟悉度 -->
+            <view
+                class ="option_sub_content_container row_flex_contariner">
+                <view
+                    class= "mark_label">*</view>
+                <view
+                    class ="option_content_subtitle">{{skill_proficiency}}</view>
+                <picker
+                    class ="option_content_value"
+                    name ="proficiency"
+                    data-name ="proficiency"
+                    range ="{{list.proficiency_array}}"
+                    value ="{{proficiency}}"
+                    bindchange ="choose_para">{{list.proficiency_array[proficiency]}}</picker></view>
+                
+
+
+            <view class="mini-buttons">
+                <!-- 保存信息 -->
+                <button 
+                    class="mini-btn"
+                    type="primary"
+                    size="mini"
+                    bindtap ="formSubmit">{{button_save}}</button>
+                <!-- 删除信息 -->
+                <button 
+                    class="mini-btn" 
+                    type="default" 
+                    size="mini"
+                    bindtap="delete_edu_info"
+                    disabled ="{{is_disable}}">{{button_delete}}</button></view>
+        </form>
+    </view>
+</view>

@@ -1,0 +1,18 @@
+@import "../../../css/displayAdd.ttss";
+@import "../../../css/inputInfo.ttss";
+.option_content_subtitle{
+    width: auto;
+}
+.option_content_value_textarea{
+    flex: none;
+    width: 100%;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+/* @import "../../../css/changInfo.ttss";
+.self-assessment-input{
+    width: 100%;
+    word-wrap: normal;
+    min-height: 800rpx;
+} */

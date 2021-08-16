@@ -1,0 +1,4 @@
+@import "../../../css/changInfo.ttss";
+.kind-list-item-hd-hide{
+    height: 0;
+}

@@ -1,0 +1,52 @@
+<!-- 导航栏 -->
+<view>
+    <navititlebar params="{{narParams}}" titleText="{{titlebar}}"></navititlebar>
+</view>
+<!-- 指导语 -->
+<view
+    class ="instruction_container">
+    <view
+        class ="instruction_text">{{example_add}}</view>
+</view>
+<view
+    class ="option_content_container option_content_container_show">
+    <view
+        class ="option_sub_content_container row_flex_contariner">
+        <view
+            class= "mark_label">*</view>
+        <view
+            class ="option_content_subtitle">{{self_title}}</view>
+    </view>
+    <textarea
+        class ="option_content_value_textarea"
+        type ="text" 
+        maxlength =300
+        value="{{self_assessment}}"
+        bindinput ="onTextInput"></textarea></view>    
+    <view class="mini-buttons">
+        <!-- 删除信息 -->
+        <button 
+            class="mini-btn" 
+            type="default" 
+            size="mini"
+            bindtap="reset_information">{{button_reset}}</button></view>
+</view>
+<!-- <view
+    class ="self_content_container">
+</view>
+
+<view>
+    <navititlebar params="{{narParams}}" titleText="{{titlebar}}"></my-component>
+</view>
+<view class ="page-instructions">{{example_add}}</view>
+<view>
+    <view  class ="self-assessment-title">{{self_title}}</view>
+    <textarea class ="self-assessment-input"
+        type ="text" maxlength =300
+        auto-height ="true"
+        value="{{self_assessment}}"
+        bindinput ="onTextInput"></textarea>
+    <button 
+        class ="page-section-info-sure"
+        bindtap ="reset_information">{{button_reset}}</button>
+</view> -->

@@ -1,0 +1,366 @@
+<!-- 导航 -->
+<view>
+    <navititlebar bind:myevent="backTo" params="{{narParams}}" titleText="{{titlebar}}"></navititlebar>
+</view>
+<!-- 必填信息 -->
+<view
+    class ="option_container">
+    <!-- 标题字段 -->
+    <view
+        class ="option_title_container row_flex_contariner"
+        bindtap="show_must_box_fun">
+        <!-- 文本 -->
+        <view
+            class ="option_title_text"
+            >{{title_must}}</view>
+        <!-- 箭头 -->
+        <image
+            class ="option_title_img hdpi_icon_img"
+            style ="display:{{isShowMust?'none':'block'}}"
+            src ="../../../files/icon/xhdpi/1-navigation-next-item.png"
+            mode ="aspectFit"></image></view>
+    <!-- 内容填写 -->
+    <view
+        class ="option_content_container {{isShowMust?'option_content_container_show':' '}}">
+        <form
+            class ="option_form"
+            catchsubmit ="formSubmit">
+            <!-- 姓名 -->
+            <view
+                class ="option_sub_content_container row_flex_contariner">
+                <view
+                    class= "mark_label">*</view>
+                <view
+                    class ="option_content_subtitle">{{must_name}}</view>
+                <input
+                    class ="option_content_value"
+                    name ="name"
+                    data-name="name"
+                    value ="{{temp_user_resume_info.name}}"
+                    type ="text"
+                    bindinput ="input_fun"
+                    maxlength =64
+                    bindblur ="choose_para"></input></view>
+            <!-- 性别 -->
+            <view
+                class ="option_sub_content_container row_flex_contariner">
+                <view
+                    class= "mark_label">*</view>
+                <view
+                    class ="option_content_subtitle">{{must_sex}}</view>
+                <picker
+                    class ="option_content_value"
+                    name ="sex"
+                    data-name ="sex"
+                    range ="{{list.sex_array}}"
+                    value ="{{temp_user_resume_info.sex}}"
+                    bindchange ="choose_para">{{list.sex_array[temp_user_resume_info.sex]}}</picker></view>
+            <!-- 出生日期 -->
+            <view
+                class ="option_sub_content_container row_flex_contariner">
+                <view
+                    class= "mark_label">*</view>
+                <view
+                    class ="option_content_subtitle">{{must_date}}</view>
+                <picker
+                    class ="option_content_value"
+                    name ="birth-date"
+                    data-name="birth_date" 
+                    mode ="date" 
+                    value ="{{temp_user_resume_info.birth_date}}" 
+                    start ="1950-01-01" 
+                    end = "2050-09-01" 
+                    fields ="day"
+                    bindchange ="choose_para">{{temp_user_resume_info.birth_date}}</picker></view>
+            <!-- 籍贯 -->
+            <view
+                class ="option_sub_content_container row_flex_contariner">
+                <view
+                    class= "mark_label">*</view>
+                <view
+                    class ="option_content_subtitle">{{must_hometown}}</view>
+                <picker
+                    class ="option_content_value"
+                    name ="hometown"
+                    data-name="hometown" 
+                    mode ="region" 
+                    value ="{{temp_user_resume_info.hometown}}" 
+                    bindchange ="choose_para">{{temp_user_resume_info.hometown}}</picker></view>
+            <!-- 电话 -->
+            <view
+                class ="option_sub_content_container row_flex_contariner">
+                <view
+                    class= "mark_label">*</view>
+                <view
+                    class ="option_content_subtitle">{{must_phone_num}}</view>
+                <input
+                    class ="option_content_value"
+                    name ="phone_num"
+                    data-name ="phone_num"
+                    value ="{{temp_user_resume_info.phone_num}}"
+                    type ="number"
+                    maxlength =11 
+                    bindinput ="input_fun"
+                    bindblur ="choose_para"></input></view>
+            <!-- 邮件 -->
+            <view
+                class ="option_sub_content_container row_flex_contariner">
+                <view
+                    class= "mark_label">*</view>
+                <view
+                    class ="option_content_subtitle">{{must_email}}</view>
+                <input
+                    class ="option_content_value"
+                    name ="email"
+                    data-name ="email"
+                    value ="{{temp_user_resume_info.email}}"
+                    type ="number"
+                    maxlength =64
+                    bindinput ="input_fun"
+                    bindblur ="choose_para"></input></view>
+            <!-- 最高学历 -->
+            <view
+                class ="option_sub_content_container row_flex_contariner">
+                <view
+                    class= "mark_label">*</view>
+                <view
+                    class ="option_content_subtitle">{{must_edu_background}}</view>
+                <picker
+                    class ="option_content_value"
+                    name ="edu_background"
+                    data-name="edu_background"
+                    range ="{{list.edu_background}}"
+                    value ="{{temp_user_resume_info.edu_background}}" 
+                    bindchange ="choose_para">{{list.edu_background[temp_user_resume_info.edu_background]}}</picker></view>
+        </form>
+    </view>
+<view
+    class ="option_container">
+    <!-- 标题字段 -->
+    <view
+        class ="option_title_container row_flex_contariner"
+        bindtap="show_other_box_fun">
+        <!-- 文本 -->
+        <view
+            class ="option_title_text"
+            >{{title_other}}</view>
+        <!-- 箭头 -->
+        <image
+            class ="option_title_img hdpi_icon_img"
+            style ="display:{{isShowOther?'none':'block'}}"
+            src ="../../../files/icon/xhdpi/1-navigation-next-item.png"
+            mode =""></image></view>
+    <view
+        class ="option_content_container {{isShowOther?'option_content_container_show':' '}}">
+        <form
+            class ="option_form"
+            catchsubmit ="formSubmit">
+            <!-- 英文名 -->
+            <view
+                class ="option_sub_content_container row_flex_contariner">
+                <view
+                    class= "mark_label"></view>
+                <view
+                    class ="option_content_subtitle">{{other_en_name}}</view>
+                <input
+                    class ="option_content_value"
+                    name ="en_name"
+                    data-name="en_name"
+                    value ="{{temp_personal_info_optional.en_name}}"
+                    type ="text"
+                    bindinput ="input_fun"
+                    maxlength =64
+                    bindblur ="choose_person_para"></input></view>
+            <!-- 毕业日期 -->
+            <view
+                class ="option_sub_content_container row_flex_contariner">
+                <view
+                    class= "mark_label"></view>
+                <view
+                    class ="option_content_subtitle">{{other_gradute_date}}</view>
+                <picker
+                    class ="option_content_value"
+                    name ="graduate_date"
+                    data-name="graduate_date" 
+                    mode ="date" 
+                    value ="{{temp_personal_info_optional.graduate_date}}" 
+                    start ="1950-01-01" 
+                    end = "2050-09-01" 
+                    fields ="month"
+                    bindchange ="choose_person_para">{{temp_personal_info_optional.graduate_date}}</picker></view>
+            <!-- 政治面貌 -->
+            <view
+                class ="option_sub_content_container row_flex_contariner">
+                <view
+                    class= "mark_label"></view>
+                <view
+                    class ="option_content_subtitle">{{other_polotics_sta}}</view>
+                <picker
+                    class ="option_content_value"
+                    name ="politics_sta"
+                    data-name ="politics_sta"
+                    range ="{{list.politics_sta}}"
+                    value ="{{temp_personal_info_optional.politics_sta}}"
+                    bindchange ="choose_person_para">{{list.politics_sta[temp_personal_info_optional.politics_sta]}}</picker></view>
+            <!-- 所在地 -->
+            <view
+                class ="option_sub_content_container row_flex_contariner">
+                <view
+                    class= "mark_label"></view>
+                <view
+                    class ="option_content_subtitle">{{other_cur_location}}</view>
+                <picker
+                    class ="option_content_value"
+                    name ="cur_location"
+                    data-name ="cur_location"
+                    mode ="region"
+                    value ="{{temp_personal_info_optional.cur_location}}"
+                    bindchange ="choose_person_para">{{temp_personal_info_optional.cur_location}}</picker></view>
+            <!-- 民族 -->
+            <view
+                class ="option_sub_content_container row_flex_contariner">
+                <view
+                    class= "mark_label"></view>
+                <view
+                    class ="option_content_subtitle">{{other_nationality}}</view>
+                <picker
+                    class ="option_content_value"
+                    name ="nationality"
+                    data-name ="nationality"
+                    range ="{{list.nationality}}"
+                    value ="{{temp_personal_info_optional.nationality}}"
+                    bindchange ="choose_person_para">{{list.nationality[temp_personal_info_optional.nationality]}}</picker></view>
+            <!-- 婚姻状况 -->
+            <view
+                class ="option_sub_content_container row_flex_contariner">
+                <view
+                    class= "mark_label"></view>
+                <view
+                    class ="option_content_subtitle">{{other_mariage}}</view>
+                <picker
+                    class ="option_content_value"
+                    name ="mariage"
+                    data-name ="mariage"
+                    range ="{{list.mariage}}"
+                    value ="{{temp_personal_info_optional.mariage}}"
+                    bindchange ="choose_person_para">{{list.mariage[temp_personal_info_optional.mariage]}}</picker></view>
+            <!-- 身高 -->
+            <view
+                class ="option_sub_content_container row_flex_contariner">
+                <view
+                    class= "mark_label"></view>
+                <view
+                    class ="option_content_subtitle">{{other_height}}</view>
+                <input
+                    class ="option_content_value"
+                    name ="height"
+                    data-name="height"
+                    value ="{{temp_personal_info_optional.height}}"
+                    type ="number"
+                    bindinput ="input_fun"
+                    maxlength =64
+                    bindblur ="choose_person_para"></input></view>
+            <!-- 体重 -->
+            <view
+                class ="option_sub_content_container row_flex_contariner">
+                <view
+                    class= "mark_label"></view>
+                <view
+                    class ="option_content_subtitle">{{other_weight}}</view>
+                <input
+                    class ="option_content_value"
+                    name ="weight"
+                    data-name="weight"
+                    value ="{{temp_personal_info_optional.weight}}"
+                    type ="number"
+                    bindinput ="input_fun"
+                    maxlength =64
+                    bindblur ="choose_person_para"></input></view>
+            
+        </form>
+    </view>
+</view>
+<!-- <view class ="index-bd">
+    <view class ="kind-list">
+        <view class="kind-list-item">
+            <view class ="kind-list-item-bd {{isShowOther?'kind-list-item-bd-show':' '}}">
+                <view class ="navigator-box {{isShowOther?'navigator-box-show':' '}}">
+                    <form class ="form-section" catchsubmit="formSubmit_Other">
+                        <view  class ="page-section-info">
+                            <view class ="page-section-info-title" >{{other_en_name}}</view>
+                            <input
+                                class ="page-section-info-value" data-name ="en_name" name ="en_name"
+                                value ="{{temp_personal_info_optional.en_name}}" type ="text" bindinput ="input_fun" maxlength =64
+                                bindblur ="choose_person_para">
+                            </input>
+                        </view>
+
+                        <view  class ="page-section-info">
+                            <view class ="page-section-info-title" >{{other_gradute_date}}</view>
+                            <picker
+                                class ="page-section-info-value" data-name ="graduate_date" name ="graduate_date"
+                                mode ="date" value ="2021-07-01" start ="1950-01-01" end = "2050-09-01" 
+                                fields ="day" bindchange ="choose_person_para">
+                                <view class ="page-section-info-value">{{temp_personal_info_optional.graduate_date}}</view>
+                            </picker>
+                        </view>
+
+                        <view  class ="page-section-info">
+                            <view class ="page-section-info-title" >{{other_polotics_sta}}</view>
+                            <picker
+                                class ="page-section-info-value" data-name ="politics_sta" name ="politics_sta"
+                                range ="{{list.politics_sta}}" value ="{{temp_personal_info_optional.politics_sta}}" 
+                                bindchange ="choose_person_para">
+                                <view class ="page-section-info-value">{{list.politics_sta[temp_personal_info_optional.politics_sta]}}</view>
+                            </picker>
+                        </view>
+
+                        <view  class ="page-section-info">
+                            <view class ="page-section-info-title" >{{other_cur_location}}</view>
+                            <picker
+                                class ="page-section-info-value" data-name ="cur_location" name ="cur_location"
+                                mode ="region" value ="" bindchange ="choose_person_para">
+                                <view class ="page-section-info-value">{{temp_personal_info_optional.cur_location}}</view>
+                            </picker>
+                        </view>
+
+                        <view  class ="page-section-info">
+                            <view class ="page-section-info-title" >{{other_nationality}}</view>
+                            <picker
+                                class ="page-section-info-value" data-name ="nationality" name ="nationality"
+                                range ="{{list.nationality}}" value ="{{temp_personal_info_optional.nationality}}" 
+                                bindchange ="choose_person_para">
+                                <view class ="page-section-info-value">{{list.nationality[temp_personal_info_optional.nationality]}}</view>
+                            </picker>
+                        </view>
+
+                        <view  class ="page-section-info">
+                            <view class ="page-section-info-title" >{{other_mariage}}</view>
+                            <picker
+                                class ="page-section-info-value" data-name ="mariage" name ="mariage"
+                                range ="{{list.mariage}}" value ="{{temp_personal_info_optional.mariage}}" 
+                                bindchange ="choose_person_para">
+                                <view class ="page-section-info-value">{{list.mariage[temp_personal_info_optional.mariage]}}</view>
+                            </picker>
+                        </view>
+
+                        <view  class ="page-section-info">
+                            <view class ="page-section-info-title" >{{other_height}}</view>
+                            <input
+                                class ="page-section-info-value" data-name ="height" name="height"
+                                value ="{{temp_personal_info_optional.height}}" type ="number" maxlength =64
+                                bindinput ="input_fun" bindblur ="choose_person_para"></input>
+                        </view>
+                        <view  class ="page-section-info">
+                            <view class ="page-section-info-title" >{{other_weight}}</view>
+                            <input
+                                class ="page-section-info-value" data-name="weight" name ="weight"
+                                value ="{{temp_personal_info_optional.weight}}" type ="number" maxlength =64
+                                bindinput ="input_fun" bindblur ="choose_person_para"></input>
+                        </view>
+                    </form>
+                </view>
+            </view>
+        </view>
+    </view>
+</view> -->

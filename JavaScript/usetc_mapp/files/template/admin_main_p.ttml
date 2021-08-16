@@ -1,0 +1,16 @@
+<view>
+    <navititlebar params="{{narParams}}" titleText="{{titlebar}}"></navititlebar>
+</view>
+
+<view>
+    <input
+        class ="page-section-info-value" data-name ="name"
+        name ="name"
+        value ="{{name}}"btype ="text" bindinput ="input_fun" maxlength =64
+        bindblur ="choose_para">
+    </input>
+    <button  bindtap="getNameArray">
+        搜索
+     </button>
+    
+</view>

@@ -1,0 +1,29 @@
+@import url("../../../css/inputInfo.ttss");
+@import url("../../../css/displayAdd.ttss");
+.flex_top{
+    position: relative;
+    align-items:flex-start;
+}
+.block_spe{
+    display: block;
+    align-items: center;
+    background-color: yellowgreen;
+    flex: 1 1 auto;    
+    
+    border-color: #FF0000;
+    border-width: 6rpx 6rpx 6rpx 6rpx;
+    border-style: dashed;
+    text-align: center;
+}
+.subInfo_spe{
+    margin: 30rpx 0rpx 96rpx 0rpx;
+}
+.display_block_img_arrow{
+    float: right;
+    top :-95rpx
+}
+
+.add_info_button{
+    text-align: center;
+    background-color: violet;
+}

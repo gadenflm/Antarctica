@@ -1,0 +1,62 @@
+<view>搜索栏</view>
+<scroll-view
+    scroll-x="true">
+    <view
+        class ="choose_scroll">
+        <view class ="choose_item">比赛</view>
+        <view class ="choose_item">证书</view>
+        <view class ="choose_item">实习</view>
+        <view class ="choose_item">招聘</view>
+        <view class ="choose_item">关注</view>
+        <icon
+            type ="search"
+            color ="green">
+        </icon>
+    </view>
+</scroll-view>
+
+<table
+    >
+    <view style="margin-top:50rpx;">
+        <thead>
+            <tr style ="display:flex">
+                <th style="flex:1;text-align: center;">日</th>
+                <th style="flex:1;text-align: center;background-color:#797949">一</th>
+                <th style="flex:1;text-align: center;">二</th>
+            </tr>
+        </thead>
+    </view>
+    <view>
+        <tbody>
+            <tr style ="display:flex">
+                <td style="flex:1;text-align: center;">
+                    28
+                </td>
+                <td style="flex:1;text-align: center;background-color:#797949">
+                    29
+                </td>
+                <td style="flex:1;text-align: center;">
+                    30
+                </td>
+            </tr>
+        </tbody>
+    </view>
+</table>
+<view style ="margin-top:30rpx;">
+    <view style ="display:flex">
+        <view style="flex:1">09:00-10:00</view>
+        <view style="flex:2">事件</view>
+    </view>
+    <view style ="display:flex">
+        <view style="flex:1">10:00-11:00</view>
+        <view style="flex:2">事件</view>
+    </view>
+    <view style ="display:flex">
+        <view style="flex:1">11:00-12:00</view>
+        <view style="flex:2">事件</view>
+    </view>
+    <view style ="display:flex">
+        <view style="flex:1">12:00-13:00</view>
+        <view style="flex:2">事件</view>
+    </view>
+</view>

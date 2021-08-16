@@ -1,0 +1,95 @@
+@import url('../../css/tab.ttss');
+.search_box{
+    padding: 20rpx 40rpx;
+}
+.search_container{
+    padding: 6rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #F8E66A;
+    border-color: #F8E66A;
+    border-style: solid;
+    border-width: 10rpx;
+    border-radius: 64rpx;
+}
+.search_img{
+    margin-right: 16rpx;
+    flex: 0 0 auto;
+    width: 64rpx;
+    height: 64rpx;
+}
+.search_input{
+    margin-left: 32rpx;
+    padding-left: 12rpx;
+    background-color: white;
+    flex: 1 1 auto;
+    height: 64rpx;
+    border: 2rpx solid white;
+    border-radius: 12rpx;
+}
+.search_info_box{
+    margin: 10rpx 10rpx;
+    padding-top: 20rpx;
+
+}
+.search_info_container{
+    padding: 20rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+.search_info_container:first-child{
+    border-width: 0 0 2rpx 0;
+    border-style: solid;
+    border-color: #F0F0F0;
+}
+.search_info_container:last-child{
+    border-width: 0 0 2rpx 0;
+    border-style: solid;
+    border-color: #F0F0F0;
+}
+.search_info_value{
+    flex: 1 0 auto;
+}
+.search_info_switch{
+    flex: 0 0 auto;
+}
+.block_show_info{
+    padding: auto;
+} 
+.event_info{
+    width: 100%;
+    height: max-content;
+}
+.show_info_empty{
+    margin-top: 10rpx;
+    background-color: rgb(202, 202, 202);
+    text-align: center;
+    width: 100%;
+    height: max-content;
+    padding: 50rpx 0;
+}
+.button_add{
+    position:fixed;
+    bottom: 3%;
+    right: 3%;
+    height: 80rpx;
+    width: 80rpx;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: #85C6D8;
+    text-align: center;
+    line-height:80rpx;
+    justify-content: center;
+    font-size: 60rpx;
+    font-weight: 700;
+    color: white;
+    background-color:  #85C6D8;
+}
+.narrow_border{
+    border-color: black;
+    border-width: 2rpx;
+    padding-top: 30rpx;
+}

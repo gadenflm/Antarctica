@@ -1,0 +1,20 @@
+<view
+    style ='height:{{systitle.height}}px;padding-top: {{systitle.top}}px;'></view>
+<view class ="nar-wrap" style ='height:{{systitle.height}}px;padding-top: {{systitle.top}}px;left:{{systitle.left}}'>
+    <view 
+        class="nav-title"
+        style ="line-height:{{systitle.height}}px; display:{{isShowTitle?'block':'none'}};
+                padding-top: {{systitle.top}}px;"
+        >{{titleText}}</view>
+    <view
+        class='nav-capsule'
+        style ='height:{{systitle.height}}px;'>
+        <view
+            bindtap ='backTo'
+            style ="display:{{isShowBackButton?'flex':'none'}}">
+            <image
+                src='../../files/back_icon.png' mode='aspectFill'
+                class ='img-icon'></image>
+        </view>
+    </view>
+</view>

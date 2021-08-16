@@ -1,0 +1,7 @@
+.input_test{
+    width: 70%;
+    word-wrap: normal;
+}
+.test_more_line{
+    word-break: break-word;
+}

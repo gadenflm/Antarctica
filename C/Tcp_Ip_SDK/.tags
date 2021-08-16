@@ -1,0 +1,131 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+BIN_C_LDFLAGS	Makefile	/^BIN_C_LDFLAGS :=$(SO_OUT_PATH) -lWKLClient$/;"	m
+BIN_C_OBJ	Makefile	/^BIN_C_OBJ := $(patsubst %.c,%.o,$(patsubst %.cpp,%.o,$(BIN_C_SRC)))$/;"	m
+BIN_C_TARGET	Makefile	/^BIN_C_TARGET :=	WKL_Client	$/;"	m
+BIN_S_LDFLAGS	Makefile	/^BIN_S_LDFLAGS :=$(SO_OUT_PATH) -lWKLServer$/;"	m
+BIN_S_OBJ	Makefile	/^BIN_S_OBJ := $(patsubst %.c,%.o,$(patsubst %.cpp,%.o,$(BIN_S_SRC)))$/;"	m
+BIN_S_SRC	Makefile	/^BIN_S_SRC := $(wildcard $(SO_SBIN_SRC_PATH)\/*.c) \\$/;"	m
+BIN_S_TARGET	Makefile	/^BIN_S_TARGET := WKL_Server_manager $/;"	m
+BUFF_SIZE	temp/client_test.c	12;"	d	file:
+BUFF_SIZE	temp/server_test.c	14;"	d	file:
+BindSocket	temp/server_test.c	/^int BindSocket (struct sock_node* sock) {$/;"	f
+BufferToCfgData	src/ServerLib/CfgIO.c	/^int BufferToCfgData (const int type, const char* buff, void * data)$/;"	f
+BufferToServerCfgData	include/CFG_Buffer.h	/^int BufferToServerCfgData(const char *buff, Server_Cfg_Data* data)$/;"	f
+CC	Makefile	/^CC := $(CROSS_COMPILE)gcc$/;"	m
+CFG_BUFF_MAX_SIZE	include/CfgIO.h	27;"	d
+CFG_FILE_SERVER	include/CfgIO.h	24;"	d
+CFG_GUIDENCE_1	include/CFG_Buffer.h	10;"	d
+CFG_GUIDENCE_2	include/CFG_Buffer.h	11;"	d
+CFG_GUIDENCE_3	include/CFG_Buffer.h	12;"	d
+CFG_NUM	include/CfgIO.h	29;"	d
+CFG_T	include/CfgIO.h	/^} CFG_T;$/;"	t	typeref:struct:cfg_t
+CFG_TYPE_SERVER	include/CfgIO.h	/^	CFG_TYPE_SERVER = 0,$/;"	e	enum:cfg_type_e
+CFLAGS	Makefile	/^CFLAGS := -O0 -fPIC -I $(INCLUDE_PATH) -Wall -Wl,-rpath=. -std=c99$/;"	m
+CROSS_COMPILE	Makefile	/^CROSS_COMPILE := $/;"	m
+CXX	Makefile	/^CXX:= $(CROSS_COMPILE)g++$/;"	m
+CXXFLAGS	Makefile	/^CXXFLAGS := -O0 -fPIC -I $(INCLUDE_PATH) -Wall -Wl,-rpath=. -std=c++11$/;"	m
+CfgDataToBuffer	src/ServerLib/CfgIO.c	/^int CfgDataToBuffer (const int type, const void *data, char* buff)$/;"	f
+CfgInit	src/ServerLib/CfgIO.c	/^int CfgInit (void) {$/;"	f
+CfgInitCheck	src/ServerLib/CfgIO.c	/^int CfgInitCheck (void) {$/;"	f
+Cfg_Type_e	include/CfgIO.h	/^} Cfg_Type_e;$/;"	t	typeref:enum:cfg_type_e
+Cfg_UI	src/ServerManager/CfgUI.c	/^void Cfg_UI(void)$/;"	f
+CheckFileExist	src/ServerLib/CfgIO.c	/^inline _Bool CheckFileExist(const char * filename) {$/;"	f
+ConnectSocket	temp/client_test.c	/^int ConnectSocket (struct sock_node* sock) {$/;"	f
+DEFAULT_SV_CFG_DATA	include/CfgIO.h	20;"	d
+ErrorExit	temp/server_test.c	/^int ErrorExit(const char *format, ...) {$/;"	f
+GetCfgData	src/ServerLib/CfgIO.c	/^int GetCfgData (const int cfg_type , void* p_cfg) {$/;"	f
+INCLUDE_PATH	Makefile	/^INCLUDE_PATH := include$/;"	m
+LINE_MAX_SIZE	include/CFG_Buffer.h	14;"	d
+LISTEN_SIZE	temp/server_test.c	15;"	d	file:
+LoadCfgFromFile	src/ServerLib/CfgIO.c	/^int LoadCfgFromFile (const int cfg_type)$/;"	f
+OutToBuffer	include/CFG_Buffer.h	/^void OutToBuffer(char* buff, const char* line ) {$/;"	f
+ReadCfgFile	src/ServerLib/CfgIO.c	/^int ReadCfgFile(const char* file_name, char* buff)$/;"	f
+ReadLineFromBuffer	include/CFG_Buffer.h	/^void ReadLineFromBuffer(const char* buff, char* line) {$/;"	f
+SERVER_IP_ADDR	temp/client_test.c	10;"	d	file:
+SHARE	Makefile	/^SHARE := -fPIC -shared -o$/;"	m
+SO_CBIN_SRC_PATH	Makefile	/^SO_CBIN_SRC_PATH := src\/Client$/;"	m
+SO_CLIB_SRC_PATH	Makefile	/^SO_CLIB_SRC_PATH := src\/ClientLib$/;"	m
+SO_C_OBJ	Makefile	/^SO_C_OBJ := $(patsubst %.c,%.o,$(patsubst %.cpp,%.o,$(SO_C_SRC)))$/;"	m
+SO_C_TARGET	Makefile	/^SO_C_TARGET := libWKLClient.so$/;"	m
+SO_OUT_PATH	Makefile	/^SO_OUT_PATH := -Llib$/;"	m
+SO_SBIN_SRC_PATH	Makefile	/^SO_SBIN_SRC_PATH := src\/ServerManager$/;"	m
+SO_SLIB_SRC_PATH	Makefile	/^SO_SLIB_SRC_PATH := src\/ServerLib$/;"	m
+SO_S_OBJ	Makefile	/^SO_S_OBJ := $(patsubst %.c,%.o,$(patsubst %.cpp,%.o,$(SO_S_SRC)))$/;"	m
+SO_S_SRC	Makefile	/^SO_S_SRC := $(wildcard $(SO_SLIB_SRC_PATH)\/*.c) \\$/;"	m
+SO_S_TARGET	Makefile	/^SO_S_TARGET := libWKLServer.so$/;"	m
+STRIP	Makefile	/^STRIP :=$(CROSS_COMPILE)strip$/;"	m
+SaveCfgToFile	src/ServerLib/CfgIO.c	/^int SaveCfgToFile (const int cfg_type)$/;"	f
+ServerCfgDataToBuffer	include/CFG_Buffer.h	/^void ServerCfgDataToBuffer(const Server_Cfg_Data* data, char *buff)$/;"	f
+ServerCfg_UI	src/ServerManager/CfgUI.c	/^void ServerCfg_UI(void) {$/;"	f
+ServerInit	src/ServerLib/ServerSDK_Func.c	/^int ServerInit (void) {$/;"	f
+ServerSocketInit	src/ServerLib/Socket_Func.c	/^int ServerSocketInit () {$/;"	f
+ServerSocketRelease	src/ServerLib/Socket_Func.c	/^int ServerSocketRelease () {$/;"	f
+ServerTest	src/ServerLib/ServerSDK_Func.c	/^int ServerTest (void) {$/;"	f
+Server_Cfg_Data	include/CfgIO.h	/^} Server_Cfg_Data;$/;"	t	typeref:struct:server_cfg_data_t
+SetCfgData	src/ServerLib/CfgIO.c	/^int SetCfgData (const int cfg_type , const  void* p_cfg_data) {$/;"	f
+SetCfgData_Default	src/ServerLib/CfgIO.c	/^int SetCfgData_Default(const int cfg_type) {$/;"	f
+Sock_Node	include/Socket_Func.h	/^} Sock_Node;$/;"	t	typeref:struct:sock_node_t
+SocketInit	temp/client_test.c	/^int SocketInit ( struct sock_node* sock) {$/;"	f
+SocketInit	temp/server_test.c	/^int SocketInit ( struct sock_node* sock) {$/;"	f
+SocketRelease	temp/client_test.c	/^int SocketRelease ( struct sock_node* sock) {$/;"	f
+SocketRelease	temp/server_test.c	/^int SocketRelease (struct sock_node* sock) {$/;"	f
+TCP_PORT	temp/client_test.c	11;"	d	file:
+TCP_PORT	temp/server_test.c	13;"	d	file:
+WKL_FAIL	include/SDK_define.h	13;"	d
+WKL_FAIL	temp/client_test.c	15;"	d	file:
+WKL_FAIL	temp/server_test.c	18;"	d	file:
+WKL_PRINTD	include/SDK_define.h	27;"	d
+WKL_PRINTE	include/SDK_define.h	21;"	d
+WKL_PRINTI	include/SDK_define.h	15;"	d
+WKL_SUCC	include/SDK_define.h	12;"	d
+WKL_SUCC	temp/client_test.c	14;"	d	file:
+WKL_SUCC	temp/server_test.c	17;"	d	file:
+WriteCfgFile	src/ServerLib/CfgIO.c	/^int WriteCfgFile(const char* file_name, char* buff)$/;"	f
+WriteToServer_test	temp/client_test.c	/^void WriteToServer_test(struct sock_node* sock) {$/;"	f
+_CFG_BUFFER_H_	include/CFG_Buffer.h	2;"	d
+_CFG_IO_H_	include/CfgIO.h	6;"	d
+_CLIENT_SDK_FUNC_H_	include/ClientSDK_Func.h	7;"	d
+_SDK_DEFINE_H_	include/SDK_define.h	6;"	d
+_SERVER_MANAGER_H	include/ServerManager.h	7;"	d
+_SERVER_SDK_FUNC_H_	include/ServerSDK_Func.h	7;"	d
+_SOCKET_FUNC_H_	include/Socket_Func.h	6;"	d
+buff_ind	include/CFG_Buffer.h	/^unsigned int buff_ind = 0;$/;"	v
+cfg_t	include/CfgIO.h	/^typedef struct cfg_t {$/;"	s
+cfg_type_e	include/CfgIO.h	/^typedef enum cfg_type_e {$/;"	g
+data	include/CfgIO.h	/^	void* data;$/;"	m	struct:cfg_t
+data_size	include/CfgIO.h	/^	uint16_t data_size;$/;"	m	struct:cfg_t
+echo	temp/server_test.c	/^int echo(int fd) {$/;"	f
+fd	include/Socket_Func.h	/^	int fd; \/\/file descriptor$/;"	m	struct:sock_node_t
+fd	temp/client_test.c	/^	int fd; \/\/file descriptor$/;"	m	struct:sock_node	file:
+fd	temp/server_test.c	/^	int fd; \/\/file descriptor$/;"	m	struct:sock_node	file:
+filename	include/CfgIO.h	/^	const char* filename;$/;"	m	struct:cfg_t
+g_cfg_list	src/ServerLib/CfgIO.c	/^static CFG_T g_cfg_list[CFG_NUM] = {$/;"	v	file:
+g_sock	src/ServerLib/Socket_Func.c	/^Sock_Node* g_sock = NULL;$/;"	v
+g_sv_cfg_data	src/ServerLib/CfgIO.c	/^static Server_Cfg_Data g_sv_cfg_data = DEFAULT_SV_CFG_DATA;$/;"	v	file:
+ip4_addr	include/CfgIO.h	/^	char ip4_addr[16];$/;"	m	struct:server_cfg_data_t
+ip_addr	include/Socket_Func.h	/^	const char* ip_addr;$/;"	m	struct:sock_node_t
+ip_addr	temp/client_test.c	/^	char* ip_addr;$/;"	m	struct:sock_node	file:
+ip_addr	temp/server_test.c	/^	char* ip_addr;$/;"	m	struct:sock_node	file:
+listen_size	include/CfgIO.h	/^	uint8_t listen_size;$/;"	m	struct:server_cfg_data_t
+main	src/ServerManager/ServerManager.c	/^int main(int argc, const char** argv) {$/;"	f
+main	temp/client_test.c	/^int main(int argc, char** argv) {$/;"	f
+main	temp/server_test.c	/^int main(int argc, char** argv) {$/;"	f
+port	include/Socket_Func.h	/^	int port;$/;"	m	struct:sock_node_t
+port	temp/client_test.c	/^	int port;$/;"	m	struct:sock_node	file:
+port	temp/server_test.c	/^	int port;$/;"	m	struct:sock_node	file:
+server_cfg_data_t	include/CfgIO.h	/^typedef struct server_cfg_data_t$/;"	s
+show_info	include/ServerManager.h	/^void show_info() {$/;"	f
+sock_node	temp/client_test.c	/^struct sock_node$/;"	s	file:
+sock_node	temp/server_test.c	/^struct sock_node$/;"	s	file:
+sock_node_t	include/Socket_Func.h	/^typedef struct sock_node_t$/;"	s
+tcp_buff_port	include/CfgIO.h	/^	uint16_t tcp_buff_port;$/;"	m	struct:server_cfg_data_t
+tcp_buff_size	include/CfgIO.h	/^	uint16_t tcp_buff_size;$/;"	m	struct:server_cfg_data_t
+type	include/CfgIO.h	/^	Cfg_Type_e type;$/;"	m	struct:cfg_t
+type	include/Socket_Func.h	/^	int type;$/;"	m	struct:sock_node_t
+type	temp/client_test.c	/^	int type;$/;"	m	struct:sock_node	file:
+type	temp/server_test.c	/^	int type;$/;"	m	struct:sock_node	file:

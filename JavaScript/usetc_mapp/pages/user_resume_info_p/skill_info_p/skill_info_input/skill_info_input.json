@@ -1,0 +1,6 @@
+{  
+    "usingComponents": {
+        "navititlebar" : "../../../../components/navititlebar/navititlebar"
+    },
+    "navigationStyle":"custom"
+}

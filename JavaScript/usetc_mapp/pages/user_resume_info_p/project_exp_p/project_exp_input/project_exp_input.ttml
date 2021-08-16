@@ -1,0 +1,113 @@
+<!-- 导航 -->
+<view>
+    <navititlebar bind:myevent="backTo" params="{{narParams}}" titleText="{{titlebar}}"></navititlebar>
+</view>
+
+<view
+    class ="option_container">
+<!-- 内容填写 -->
+    <view
+        class ="option_content_container option_content_container_show">
+        <form
+            class ="option_form"
+            catchsubmit ="formSubmit">
+            <!-- 项目开始 -->
+            <view
+                class ="option_sub_content_container row_flex_contariner">
+                <view
+                    class= "mark_label">*</view>
+                <view
+                    class ="option_content_subtitle">{{project_start_date}}</view>
+                <picker
+                    class ="option_content_value"
+                    name ="start_date"
+                    data-name="start_date" 
+                    mode ="date" 
+                    value ="{{start_date}}" 
+                    start ="1950-01" 
+                    end = "2050-09" 
+                    fields ="month"
+                    bindchange ="choose_para">{{start_date}}</picker></view>
+            <!-- 项目结束时间 -->
+            <view
+                class ="option_sub_content_container row_flex_contariner">
+                <view
+                    class= "mark_label">*</view>
+                <view
+                    class ="option_content_subtitle">{{project_end_date}}</view>
+                <picker
+                    class ="option_content_value"
+                    name ="end_date"
+                    data-name="end_date" 
+                    mode ="date" 
+                    value ="{{end_date}}" 
+                    start ="1950-01" 
+                    end = "2050-09" 
+                    fields ="month"
+                    bindchange ="choose_para">{{end_date}}</picker></view>
+            <!-- 项目名称 -->
+            <view
+                class ="option_sub_content_container row_flex_contariner">
+                <view
+                    class= "mark_label">*</view>
+                <view
+                    class ="option_content_subtitle">{{project_project_name}}</view>
+                <input
+                    class ="option_content_value"
+                    name ="project_name"
+                    data-name="project_name"
+                    value ="{{project_name}}"
+                    type ="text"
+                    bindinput ="input_fun"
+                    maxlength =64
+                    bindblur ="choose_para"></input></view>
+            <!-- 职务 -->
+            <view
+                class ="option_sub_content_container row_flex_contariner">
+                <view
+                    class= "mark_label"></view>
+                <view
+                    class ="option_content_subtitle">{{project_work_name}}</view>
+                <input
+                    class ="option_content_value"
+                    name ="work_name"
+                    data-name="work_name"
+                    value ="{{work_name}}"
+                    type ="text"
+                    bindinput ="input_fun"
+                    maxlength =64
+                    bindblur ="choose_para"></input></view>
+            <!-- 简介 -->
+            <view
+                class ="option_sub_content_container row_flex_contariner flex_top">
+                <view
+                    class= "mark_label"></view>
+                <view
+                    class ="option_content_subtitle">{{project_intro}}</view>
+                <textarea
+                    class ="option_content_value_textarea"
+                    name ="intro"
+                    data-name ="intro"
+                    value ="{{intro}}"
+                    maxlength =512
+                    bindinput ="input_fun"
+                    bindblur ="choose_para"></textarea></view>        
+
+
+            <view class="mini-buttons">
+                <!-- 保存信息 -->
+                <button 
+                    class="mini-btn"
+                    type="primary"
+                    size="mini"
+                    bindtap ="formSubmit">{{button_save}}</button>
+                <!-- 删除信息 -->
+                <button 
+                    class="mini-btn" 
+                    type="default" 
+                    size="mini"
+                    bindtap="delete_edu_info"
+                    disabled ="{{is_disable}}">{{button_delete}}</button></view>
+        </form>
+    </view>
+</view>

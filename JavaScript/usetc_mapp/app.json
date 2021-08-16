@@ -1,0 +1,69 @@
+{
+    "pages": [
+        
+        "pages/mycenter",
+        "pages/user_resume_info_p/user_resume_info_p",
+        "pages/user_resume_info_p/user_resume_info_must_p/user_resume_info_must_p",
+        "pages/user_resume_info_p/edu_exp_p/edu_exp_p",
+        "pages/user_resume_info_p/edu_exp_p/edu_exp_input/edu_exp_input",
+        "pages/user_resume_info_p/skill_info_p/skill_info_p",
+        "pages/user_resume_info_p/skill_info_p/skill_info_input/skill_info_input",
+        "pages/user_resume_info_p/self_assessment_p/self_assessment_p",
+        "pages/user_resume_info_p/project_exp_p/project_exp_p",
+        "pages/user_resume_info_p/project_exp_p/project_exp_input/project_exp_input",
+        "pages/user_resume_info_p/other_info_p/other_info_p",
+        "pages/user_resume_info_p/other_info_p/other_info_input/other_info_input",
+        "pages/user_resume_info_p/internship_exp_p/internship_exp_p",
+        "pages/user_resume_info_p/internship_exp_p/internship_exp_input/internship_exp_input",
+        "pages/user_resume_info_p/award_info_p/award_info_p",
+        "pages/user_resume_info_p/award_info_p/award_info_input/award_info_input",
+        
+        "files/testPage/testPage",
+
+        "pages/admin_main_p/admin_main_p",
+        "pages/admin_main_p/admin_event/admin_event",
+        "pages/main"
+
+    ],
+    "enablePullDownRefresh": true,
+    "window":
+    {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "Gadget",
+        "navigationBarTextStyle": "black",
+        "navigationStyle":"custom"
+    },
+    "tabBar":{
+    	"color":"#7A7E83",
+    	"selectedColor":"#3370FF",
+    	"borderStyle":"black",
+    	"backgroundColor":"#ffffff",
+    	"list":[
+    		{
+    			"pagePath":"pages/mycenter",
+    			"iconPath":"files/logo1.png",
+    			"selectedIconPath":"",
+    			"text":"个人"
+    		},
+            {
+                "pagePath":"pages/main",
+    			"iconPath":"files/logo3.png",
+    			"selectedIconPath":"",
+    			"text":"升华"
+            }]
+    },
+    "networkTimeout":{
+        "request":10000,
+        "connectSocket":10000,
+        "uploadFile":10000,
+        "downloadFile":10000
+    },
+    "debug": false,
+    "ext": {
+        "defaultPages": {
+            "sidebarMode": "pages/mycenter",
+            "PCMode": "pages/mycenter"
+        }
+    }
+}

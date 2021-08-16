@@ -1,0 +1,72 @@
+#****************************************************************************
+# arch configure
+#****************************************************************************
+include ../arch.mk
+
+PLATINC=${PLATFORM_OUTPUT_DIR}/include
+PLATLIB=${PLATFORM_OUTPUT_DIR}/library
+
+PUBINC=../include
+
+#****************************************************************************
+# Source 
+#****************************************************************************
+SUBDIRS=$(shell find ./ambarella -maxdepth 2 -type d)
+
+SRCS:=$(foreach dir,$(SUBDIRS),$(wildcard $(dir)/*.cpp))\
+			$(foreach dir,$(SUBDIRS),$(wildcard $(dir)/*.c))
+
+OBJS=$(patsubst %.c, %.o, $(patsubst %.cpp, %.o, $(SRCS))) 
+
+#****************************************************************************
+# Include 
+#****************************************************************************
+INCDIRS=$(shell find ./include -maxdepth 2 -type d)
+INCPRJ=$(foreach dir,$(INCDIRS),$(join -I,$(dir)))
+INCS := ${INCPRJ}
+
+PUB_INCDIRS=$(shell find $(PUBINC) -maxdepth 4 -type d)
+PUB_INCPRJ=$(foreach dir,$(PUB_INCDIRS),$(join -I,$(dir)))
+INCS += ${PUB_INCPRJ}
+
+PLAT_INCDIRS=$(shell find $(PLATINC) -maxdepth 4 -type d)
+PLAT_INCPRJ=$(foreach dir,$(PLAT_INCDIRS),$(join -I,$(dir)))
+INCS += ${PLAT_INCPRJ}
+
+#单独支持src里面的头文件
+SRC_INCDIRS=$(shell find ./ambarella -maxdepth 4 -type d)
+SRC_INCPRJ=$(foreach dir,$(SRC_INCDIRS),$(join -I,$(dir)))
+INCS += ${SRC_INCPRJ}
+
+#****************************************************************************
+# Library 
+#****************************************************************************
+# LIBS := -L${PUBLIB}
+# DYNAMIC_LIBS := -Wl,-Bdynamic -llua-5.3 -limg_aaa_flow_v5 -limg_dsp_v5_dyn -limg_algo_v5_dyn -lasound
+# STATIC_LIBS :=   -Wl,-Bstatic
+# LIBS += ${STATIC_LIBS} ${DYNAMIC_LIBS}
+
+#****************************************************************************
+# Output
+#****************************************************************************
+OUTPUT_STATIC    := ./libhardware.a
+
+all: ${OUTPUT_STATIC}
+
+${OUTPUT_STATIC}: ${OBJS}
+	${AR} rcs $@ $^
+
+#****************************************************************************
+# Rule
+#****************************************************************************
+%.o : %.cpp
+	${CXX} -c ${INCS} $< -o $@ ${CXXFLAGS}
+
+%.o : %.c
+	${CC} -c ${INCS} $< -o $@ ${CFLAGS} 
+
+#****************************************************************************
+# Other
+#****************************************************************************
+clean:
+	${RM} ${OUTPUT_STATIC} ${OBJS}

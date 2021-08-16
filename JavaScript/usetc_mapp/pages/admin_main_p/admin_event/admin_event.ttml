@@ -1,0 +1,194 @@
+<!-- 导航栏 -->
+<view>
+    <navititlebar params="{{narParams}}" titleText="{{titlebar}}"></navititlebar>
+</view>
+<view
+    class ="option_container">
+    <view
+        class ="option_content_container option_content_container_show">
+        <form
+            class ="option_form"
+            catchsubmit ="formSubmit">
+            <!-- 名称 -->
+            <view
+                class ="option_sub_content_container row_flex_contariner">
+                <view
+                    class= "mark_label"></view>
+                <view
+                    class ="option_content_subtitle">{{event_name}}</view>
+                <input
+                    class ="option_content_value"
+                    name ="name"
+                    data-name="name"
+                    value ="{{name}}"
+                    type ="text"
+                    bindinput ="input_fun"
+                    maxlength =64
+                    bindblur ="choose_para"></input></view>
+                    
+            <!-- 标题 -->
+            <view
+                class ="option_sub_content_container row_flex_contariner">
+                <view
+                    class= "mark_label"></view>
+                <view
+                    class ="option_content_subtitle">{{event_title}}</view>
+                <input
+                    class ="option_content_value"
+                    name ="title"
+                    data-name="title"
+                    value ="{{title}}"
+                    type ="text"
+                    bindinput ="input_fun"
+                    maxlength =64
+                    bindblur ="choose_para"></input></view>
+            <!-- 开始日期 -->
+            <view
+                class ="option_sub_content_container row_flex_contariner">
+                <view
+                    class= "mark_label"></view>
+                <view
+                    class ="option_content_subtitle">{{event_start_time}}</view>
+                <picker
+                    class ="option_content_value"
+                    name ="start_time"
+                    data-name="start_time" 
+                    mode ="date" 
+                    value ="{{start_time}}" 
+                    start ="1950-01-01" 
+                    end = "2050-09-01" 
+                    fields ="day"
+                    bindchange ="choose_para">{{start_time}}</picker></view>
+            <!-- 结束日期 -->
+            <view
+                class ="option_sub_content_container row_flex_contariner">
+                <view
+                    class= "mark_label"></view>
+                <view
+                    class ="option_content_subtitle">{{event_end_time}}</view>
+                <picker
+                    class ="option_content_value"
+                    name ="end_time"
+                    data-name="end_time" 
+                    mode ="date" 
+                    value ="{{end_time}}" 
+                    start ="1950-01-01" 
+                    end = "2050-09-01" 
+                    fields ="day"
+                    bindchange ="choose_para">{{end_time}}</picker></view>
+            <!-- 类型 -->
+            <view
+                class ="option_sub_content_container row_flex_contariner">
+                <view
+                    class= "mark_label"></view>
+                <view
+                    class ="option_content_subtitle">{{event_type}}</view>
+                <picker
+                    class ="option_content_value"
+                    name ="type"
+                    data-name ="type" 
+                    range ="{{list.type_array}}"
+                    value ="{{type}}"
+                    bindchange ="choose_para">{{list.type_array[type]}}</picker></view>
+            
+            <!-- 权限 -->
+            <view
+                class ="option_sub_content_container row_flex_contariner">
+                <view
+                    class= "mark_label"></view>
+                <view
+                    class ="option_content_subtitle">{{event_priority}}</view>
+                <picker
+                    class ="option_content_value"
+                    name ="priority"
+                    data-name ="priority" 
+                    range ="{{list.priority_array}}"
+                    value ="{{priority}}"
+                    bindchange ="choose_para">{{list.priority_array[priority]}}</picker></view>
+        </form>
+        <form
+            class ="option_form">
+            <block
+                tt:for="{{info}}">
+                <view
+                    class ="block_spe">
+                    <view
+                        class ="subInfo_spe">
+                        <!-- 信息卡片 -->
+                        <view
+                            class ="option_sub_content_container row_flex_contariner">
+                            <view
+                                class= "mark_label">*</view>
+                            <view
+                                class ="option_content_subtitle">{{event_info_card_visiable}}</view>
+                            <picker
+                                class ="option_content_value"
+                                name ="card_visiable"
+                                data-name ="card_visiable"   
+                                data-index="{{index}}"
+                                range ="{{list.card_visiable_array}}" 
+                                value ="{{item.card_visiable?1:0}}" 
+                                bindchange ="array_choose_para">{{list.card_visiable_array[item.card_visiable?1:0]}}</picker></view>
+                        <!-- 子标题 -->
+                        <view
+                            class ="option_sub_content_container row_flex_contariner">
+                            <view
+                                class= "mark_label"></view>
+                            <view
+                                class ="option_content_subtitle">{{event_info_subtitle}}</view>
+                            <input
+                                class ="option_content_value"
+                                name ="subtitle" 
+                                data-name ="subtitle"
+                                data-index="{{index}}"
+                                value ="{{item.subtitle}}"
+                                type ="text"
+                                bindinput ="input_fun"
+                                maxlength =64
+                                bindblur ="array_choose_para"></input></view>
+                        <!-- 子信息 -->
+                        <view
+                            class ="option_sub_content_container row_flex_contariner flex_top">
+                            <view
+                                class= "mark_label"></view>
+                            <view
+                                class ="option_content_subtitle">{{event_info_data}}</view>
+                            <textarea
+                                class ="option_content_value_textarea"
+                                name ="data"
+                                data-name ="data"
+                                data-index="{{index}}"
+                                value ="{{item.data}}"
+                                maxlength =512
+                                bindinput ="input_fun"
+                                bindblur ="array_choose_para"></textarea></view>  
+                    </view>
+                    <image
+                        class ="display_block_img_arrow zhdpi_icon_img"
+                        src ="{{src_cancle}}"
+                        mode ="aspectFit"></image>
+                </view>
+                
+            </block>
+            <!-- 添加额外信息 -->
+            <view>
+                <view
+                    class ="add_info_button"
+                    bindtap ="add_sub_info">+</view>
+            </view>
+            <view class="mini-buttons">
+                <!-- 保存信息 -->
+                <button 
+                    class="mini-btn"
+                    type="primary"
+                    size="mini"
+                    bindtap ="formSubmit">{{button_save}}</button>
+                <!-- 删除信息 -->
+                <button 
+                    class="mini-btn" 
+                    type="default" 
+                    size="mini"
+                    bindtap="delete_edu_info">{{button_delete}}</button></view>
+        </form>
+    </view>
+</view>

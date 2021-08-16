@@ -1,0 +1,11 @@
+
+函数（有返回值）例：
+f(x)=1.8x+32
+
+def f(x):
+    return 1.8*x+32
+
+
+过程（无返回值）例：
+def procedure_test:
+  #  work 
