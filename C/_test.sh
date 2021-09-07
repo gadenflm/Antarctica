@@ -1,0 +1,1 @@
+gcc ./_test.c -o ./test.exe
