@@ -8,8 +8,9 @@
 
 `ln [-d -s] [SouceFile or Dir] [TargetLink]` 
 
-* `-d`  目录类型link
-* `-s` 
+* `-d`  (dir)  目录类型link
+* `-s`  (symbolic) 建立一个软链接, 存储指向路径和文件名称。类似于快捷方式
+* 不加`-s` 建立一个硬链接(占用空间，且内容统一)
 
 #### 压缩/解压缩 tar
 
@@ -37,9 +38,42 @@ grep -r -l "[Wkl Debug]" *
 ```
 
 #### 文件检索 find
+```Shell
+find [path] [-option expression] 
+```
+在命令列上第一个 `-` `(` `)` `,` `!` 之前的部份为 path，之后的是 expression。
+path 为空字串则使用目前路径
+expression 为空则使用 `-print` 为预设 expression。
 
-#### 符号表信息列举(可用于查询.o .so .a中的函数信息) nm
+__常用 option:__
+* `-cmin n` 在过去n 分钟被修改过
+* `-ctime n` 在过去n 天被修改过
+* `-name name, -iname name` 文件名称符合 name 的文件。iname 会忽略大小写
+* `-type []` 
+   `d` 目录
+   `c` 字型装置文件
+   `b` 区块装置文件
+   `f` 一般文件
+   `l` 符号连结
+   
+```Shell
+# example
 
+#当前目录及其子目录下所有文件后缀为 .h 的文件列出来:
+find . -name "*.h"
+
+#将当前目录及其子目录中的所有目录列出 
+find . -type d
+
+#将当前目录及其子目录下所有最近 20 天内更新过的文件列出:
+find . -ctime -20
+
+#查找 /var/log 目录中更改时间在 7 日以前的普通文件，并在删除之前询问它们
+find /var/log -type f -mtime +7 -ok rm {} \;
+
+#查找系统中所有文件长度为 0 的普通文件，并列出它们的完整路径：
+find / -type f -size 0 -exec ls -l {} \;
+```
 ## 逆向
 
 #### 反汇编指令 objdump
@@ -214,3 +248,43 @@ Ubuntu 基于 Debian。
 * `-L` __(常用)__ 显示与 target package 的全部相关文件
 * `-r` 删除目标 package, 保留配置文件
 * `-P` 删除目标 package, 清除配置文件
+
+## 权限
+
+#### 修改拥有者 chown
+
+```Shell
+chown [-R] [UserName] [FileName or Path]
+chown [-R] [UserName:GroupName] [FileName or Path]
+```
+
+change owner,修改文件所属用户及用户组
+
+* -R 递归调用
+
+#### 修改文件权限 chmod
+
+```Shell
+chmod [-R] xyz [FileName or Path]
+```
+
+* -R 递归调用
+* __xyz__
+    - xyz，为3个数字分别对应拥有用户(owner)、组(group)、其他(others) ，取值0-7，即`0B000~0B111`，三位分别对应rwx，即可读(read),可写(write),可执行(execute)三种权限
+    - x Owner权限
+    - y 同组用户权限
+    - z 其他人权限
+
+PS: 文件本身权限查看可以使用 `ls -l`
+
+## 彩蛋
+
+* vim `:help 42`
+* apt-get moo 
+* sudo apt install cowsay
+* sudo apt install sl
+* sudo visudo --> add `Defaults insults` 
+* sudo apt-get install cmatrix
+* sudo apt-get install oneko
+* sudo apt-get install libaa-bin --> aafire
+* sudo apt-get install xeyes

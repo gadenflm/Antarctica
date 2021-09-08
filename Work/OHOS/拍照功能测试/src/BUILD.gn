@@ -1,0 +1,61 @@
+import ("//build/lite/config/component/lite_component.gni")
+
+HDF_FRAMEWORKS = "//drivers/framework"
+KHDF_LITEOS = "//drivers/adapter/khdf/liteos"
+LITEOS_TOP_DIR = "//kernel/liteos_a"
+
+lite_component("wkl_debug_comp") {
+ features=[":wkl_debug"]
+}
+
+executable ("wkl_debug") {
+ output_name = "wkl_debug"
+ sources = [
+   "src/wkl_debug.cpp",
+   "src/main.cpp",
+ ]
+ deps = [
+    "//foundation/multimedia/camera_lite/frameworks:camera_lite",
+    "//foundation/multimedia/media_lite/frameworks/recorder_lite:recorder_lite",
+    "//drivers/adapter/uhdf/manager:hdf_manager",
+    "//drivers/adapter/uhdf/posix:hdf_posix",
+    "//base/sensors/sensor_lite/frameworks/src:sensor_client",
+    "//drivers/adapter/uhdf/platform:hdf_platform_driver",
+    "//base/hiviewdfx/hilog_lite/frameworks/featured:hilog_shared",
+    "//third_party/bounds_checking_function:libsec_shared",
+ ]
+ include_dirs = [
+    "include",
+    "//base/sensors/sensor_lite/interfaces/kits/native/include",
+    "//third_party/bounds_checking_function/include",
+    "//base/hiviewdfx/hilog_lite/interfaces/native/innerkits",
+    "$LITEOS_TOP_DIR/bsd/compat/linuxkpi/include",
+    "$KHDF_LITEOS/osal/include",
+    "$HDF_FRAMEWORKS/core/adapter/vnode/include",
+    "$HDF_FRAMEWORKS/core/adapter/syscall/include",
+    "$HDF_FRAMEWORKS/core/shared/include",
+    "$HDF_FRAMEWORKS/core/host/include",
+    "$HDF_FRAMEWORKS/core/manager/include",
+    "$HDF_FRAMEWORKS/ability/sbuf/include",
+    "$HDF_FRAMEWORKS/include/core",
+    "$HDF_FRAMEWORKS/include/platform",
+    "$HDF_FRAMEWORKS/include/osal",
+    "$HDF_FRAMEWORKS/include/utils",
+    "$HDF_FRAMEWORKS/utils/include",
+    "$HDF_FRAMEWORKS/include/osal",
+    "$HDF_FRAMEWORKS/../adapter/uhdf/posix/include",
+
+ ]
+ defines = [
+    "__USER__"
+ ]
+ cflags = [
+ ]
+ cflags_cc = cflags
+ ldflags = [
+   "-lstdc++",
+   "-lpthread",
+   "-Wl,-rpath-link=$ohos_root_path/$root_out_dir",
+ ]
+}
+
