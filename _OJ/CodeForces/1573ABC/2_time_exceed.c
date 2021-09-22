@@ -22,16 +22,14 @@ int main()
 			if (i>=m ) break;
 			for (j=0; j<n; ++j)
 			{
-				if ( j>=m || (i+j)>=m ) break;
+				if (j>=m) break;
 				if (a[i]<b[j]) 
 				{
 					if ((i+j)<m)
 					{
 						m=i+j;
-						break;
+
 					}
-					if ((i+j)>=n)
-						break;
 				}
 			}
 		}
