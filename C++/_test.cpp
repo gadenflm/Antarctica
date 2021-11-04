@@ -1,7 +1,16 @@
-#include <iostream>
-using namespace std;
-int main (){
-	cout <<  sizeof(bool) << endl;
-	getchar();
-	return 0;
+/*test.h*/
+
+int GlobalVariable = 1	;
+
+/*test.c*/
+#include <stdc++.h>
+
+#include "test.h"
+
+extern int GlobalVariable;
+
+int main()
+{
+	std::cout << GlobalVariable << std::endl;
 }
+

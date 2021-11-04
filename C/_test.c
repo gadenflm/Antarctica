@@ -1,64 +1,66 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-// #include <time.h>
-// #include <unistd.h>
+#include <stdint.h>
+#include <math.h>
 
-static int a[51];
-static int out[51][3];
-static int b[51] = {0};
-
-static int quicksort(int* aa, int left, int right) 
+int func(int n)
 {
-	if (left >= right) return 0;
-	int ll = left, rr = right;
-	int mid = aa[right];
-	while (left < right)
-	{
-		while (left < right && aa[left] <= aa[right]) ++left;
-		aa[right] = aa[left];
-		while (left < right && aa[right] >= aa[left]) --right;
-		aa[left] = aa[right];
-	}
-	aa[left] = mid;
-	quicksort(aa, ll+1, left);
-	quicksort(aa, left, rr-1);
+	int k = n-1;
+	while (n % k == 0) --k;
+	return k;
 }
 
-/*
-1
-9
-8 7 3 59 3 2 34 -1 29
- */
-
-static inline int shift(int* aa, int length, int d)
+int main() 
 {
-	memcpy(b,aa,sizeof(int)*(d));
-	memcpy(aa,aa+d,sizeof(int)*(length-d));
-	memcpy(aa+(length-d),b,sizeof(int)*(d));
-	return 0;
-}
-
-int main()
-{
-	int tt,index;
-
-	scanf("%d",&tt);
-	for (int index = 0; index < tt ; ++ index) 
+	int t,ind,n,i,m;
+	char c;
+	char s[300001];
+	char a[300001];
+	scanf("%d",&t);
+	for (ind = 0; ind < t; ++ind)
 	{
-		int n, i, flag, ret, d;
-		scanf ("%d",&n);
-		for (i = 0; i< n; ++i) {
-			scanf("%d",&a[i]);
-		}
-		quicksort(a,0,n-1);
-		for (i = 0; i < n; ++i) 
+		scanf("%d %c",&n,&c);
+		scanf("%s",s);
+		m = 0;
+		for (i = 0; i < n; ++i)
 		{
-			printf("%d\n",a[i]);
+			if (s[i] == c)
+			{
+				a[i]  = 0;
+			} else 
+			{
+				a[i] = 1;
+				++m;
+			}
 		}
-	}
+		if (m == 0) 
+		{
+			printf ("0\n"); continue;
+		}
 
-    char ch2;
-    while ((ch2= getchar())  != 'q');
+		if (m == 1)
+		{
+			printf ("1\n");
+			if (a[n-1] == 1) 
+				m = func(n);
+			else 
+				m = n;
+			printf ("%d\n",m);
+			continue;
+		}
+
+		if (a[n-1] == 1) 
+		{
+			printf ("2\n");
+			printf ("%d %d\n",n,func(n));	
+		}
+		else{
+			printf ("1\n");
+			printf ("%d\n",n);
+		}			
+	}	
+	// char ch;
+	// while ((ch = getchar())!='q');
 	return 0;
 }
