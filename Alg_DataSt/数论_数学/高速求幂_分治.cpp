@@ -1,6 +1,6 @@
 /**
  * @Author: K_gadenflm 2021-11-6
- * @brief: 高速求幂，思想:二分分治
+ * @brief: 高速求幂，思想:分治, 降维.
  * 		   O(log(n))
  */
 #include <iostream>
