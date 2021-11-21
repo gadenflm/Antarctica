@@ -363,7 +363,19 @@ std::array<int, 10> a;
 std::array<double, 4> b = {1.1, 1.2, 3.14, 4.86};
 ```
 
-## Chapter 5 循环, 关系表达式
+## `Chapter 5~6` 循环, 分支, 逻辑
+
+### 随记
+<font color="red" size="4">
+建议使用 value == variable 替代 variable == value, 让漏写等号时程序可以报错
+</font>
+
+```CPP
+if (3.14 == pi)
+	cout << "It's Pi" << endl;
+```
+
+---
 
 ### 递增递减运算符
 #### 副作用与顺序点
@@ -415,5 +427,179 @@ __string 类重载了关系运算符, 可以直接比较。__
 
 ### range-based for (C++11)
 
-__主要用于模板类，例如 STL.__
+__主要用于数组或模板类，例如 STL.若要修改数组中的元素, 需要使用引用变量__
+
+```CPP
+// 仅访问数组的元素
+double arr_var[] = {1.2,2.3,3.14,4.5};
+for (double x: arr_var)
+{
+	cout << x << endl;
+}
+
+//修改数组中的元素, 需要使用引用变量
+for (double &x: arr_var)
+{
+	++x;
+}
+
+// 也可以使用这种写法
+for (int x : {3, 1, 4, 1, 5, 9, 2, 6})
+{
+	cout << x << endl;
+}
+
+```
+
+### C++ Input 基础
+
+#### cin
+
+* 默认情况下, cin类 重载`>>` 作为输入时会 跳过一切空白(空格、换行、制表符)
+* 默认情况下, cin类 重载`>>` 作为输入时会 将输入先送入缓冲区, 即用户按下回车键后输入才会被发送给程序
+* `cin.get(ch)` 不会跳过空白
+* __`cin.get()` 参数变量为引用类型, 因此不需要将地址传入, 直接传入原变量就能修改其值。__
+
+#### 文件尾(EOF)和重定向
+
+* 同C, 文件尾为预先定义的宏`EOF`, (End of File)
+* 重定向过程与机制与C 基本一样, 重定向会修改程序对 `EOF` 的解释。
+* __检测到EOF后, cin 会将两个标志位(eofbit, failbit)设置为1. 其对应检测方法为 cin 两个成员函数__
+	- `cin.eof()` 在`eofbit == 1`下返回 true, 否则返回 false
+	- `cin.fail()` 在`eofbit == 1 && failbit == 1`下返回 true, 否则返回 false
+	
+```CPP 
+char ch;
+cin.get(ch);
+while(!cin.fail())
+{
+	cout << ch;
+	cin.get(ch);
+}
+```
+### 逻辑运算符
+
+* `||` 是个顺序点, `||` 会先使左侧式子的副作用生效, 再对右侧的表达式进行判定
+* __`||` 如果左侧的表达式为true, C++ 将不会判定右侧的表达式(举例,可以用来处理 除数为0的判定)。__
+* __`||` 与 `&&` 的优先级均比 关系运算符(`>` `<` `==` ...) 低, 不用加括号__
+* __`!`  优先级均比 关系运算符(`>` `<` `==` ...) 高, 必须加括号__
+
+## `Chapter 7~8` 函数
+
+### 函数 传递参数/返回值 的底层过程
+
+__通常, 被调用函数 将 返回值复制到指定的 CPU寄存器 或 内存单元 中来将其返回。随后, 程序的 原函数 将查看该内存单元。 即 传递参数/返回值 都会发生内存的 拷贝过程。__
+
+__因此 被调用函数 和 原函数 必须就该内存单元中存储的数据类型达成一致。 具体如下： 原函数获得的返回类型来源于 函数原型(function prototype),  被调用函数的 返回类型 来源于 函数定义(function definition)__
+
+__进一步, 函数原型(function prototype) 描述的是函数到编译器的接口, 将 函数返回值的类型 以及 参数的类型 和 参数的数量 告诉编译器。 编译器因此将知道去对应内存或寄存器中 检索多少个字节__
+
+```CPP
+double sqr(double x); 					//函数原型(function prototype)
+int main ()
+{
+	double x = 2.5;
+	std::cout << sqr(x) << std::endl;  	//此处获得返回类型为 double 来源于 函数原型
+}
+
+double sqr(double x) 					//函数定义(function definition)
+{
+	return x*x; 						//此数获得返回类型为 double 来源于 函数定义 
+}
+```
+
+自动类型转换：__若调用函数时, 参数类型与 函数原型 不对应, 编译器 将尽可能 把传入的参数 转成 正确类型__
+
+### 函数参数 为数组
+
+```CPP 
+int sum_arr(int arr[], int n)         // 传递数组时指定数组名, 本质为传递首元素指针, 但实际与直接传递指针有区别！！！！！！
+{
+	int ret;
+	for (i = 0; i < n; ++i)
+		ret += i;
+	return ret;
+}
+```
+参数数组时为可用`int arr[]`指定数组名, 本质为传递首元素指针, 但实际与直接传递指针有一些区别:
+
+*  此时, 对数组名使用 `sizeof` 将得到整个数组的长度(单位:字节)
+*  此时, `&` 取地址运算符 将返回 整个数组的首地址, 而不是其首元素的地址, 这两个过程值虽然一样, 整个数组的首地址指代一个更大的内存块。
+
+#### 二维数组
+
+```CPP
+void test_func(int (*ar)[2], int size);  // ar 为指向 int[2] 类型的 指针变量。 size 对应有几个 int[2]
+void test_func2(int ar[][2], int size);  // 也可以写成这种形式
+int main()
+{
+	int data[3][2] = {{1,2},{3,4},{5,6}};
+	test_func(data,3);
+	test_func2(data,3);
+}
+```
+注意格式为 `int(*ar)[2]`, 因为`()` `[]` 的优先级均比 `*` 高， 因此不能省略 `()`
+
+### 指针与const
+
+* 情况一:
+```CPP
+const int age = 24;
+const int * pa_1 = &age;
+```
+此时，pa_1 为指向 const int 类型的指针变量。 age 也为 const int 类型常量。 __pa_1 可以指向其他 const int 或者 int 类型，只是从 pa_1 角度出发，因为指向的是const int类型， 所以不能修改指向空间内的值。__
+
+* 情况二：
+```CPP
+int age = 24;
+const int * pa_2 = &age; 
+```
+此时, 指向 const int 类型的指针变量。 __但 age 是 int类型变量, 从 pa_2 角度出发，不能修改指向空间内的值。 但 age 本身的值可以被修改！__
+
+* 情况三:
+```CPP
+// 错误！！！！！！！！！！！！！！！！！
+const int age = 24;
+int* pa_wrong = &age;
+```
+<font color="red">此时，编译错误</font>  
+__C++ 中, 非const 指针， 只能指向非 const 类型的数据__
+
+* 情况四:
+```CPP 
+int age = 24;
+int * const pa_4 = &age;
+```
+此时， pa_4 为 指向 int 类型的指针变量, 但 pa_4 本身有 const 申明， __因此不能修改 pa_4 指向的空间地址, 但可以通过该地址修改内部的值。__
+
+* 情况五:
+```CPP 
+int age = 24;
+const int* const pa_5 = age;
+```
+此时, pa_5 为指向 const int 类型的指针变量, 同时本身也有 const 申明， __因此 既不能修改 pa_5 指向的空间地址，也不能通过该地址修改内部的值__
+
+### 函数指针
+
+__函数也有地址, 函数的地址是存储其机器语言代码的内存的开始地址__
+
+```CPP
+void test_func(void* param);
+void run(void (*pfunc) (void*), void* par)
+{
+	(*pfunc)(par);
+}
+```
+`void (*pfunc) (void*)` 申明了一个 指针变量 pfunc,  指向 返回类型为 `void` ,参数为一个，参数类型为 `void*` 的函数。
+
+__C++中, 可用 auto 自动生成 指向函数的指针, 同时也可以用 typedef 专门定义指向某种函数的指针变量 的类型符号， 此处不展开。__
+
+### 内联函数
+
+```CPP
+inline double square(double x)
+{
+	return x*x;
+}
+```
 
