@@ -1,44 +1,30 @@
 #include <iostream>
 #include <stdint.h>
+#include <string>
+#include <vector>
 using namespace std;
+#define N 200001
 
 int main()
 {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	uint32_t tt, n, left, ret;
+	uint32_t tt, n;
 	cin >> tt;
 	while(tt--)
 	{
 		cin >> n;
-		left = 0; ret = 0;
-		for (register int i = 0; i < n; ++i)
+		int a[N][2] = {0};
+		int b[N][2] = {0};
+		for (int i = 0; i < n; ++i)
 		{
-			char ch;
-			cin >> ch;
-			if (ch == '(')
-			{
-				++left;
-				++ret;
-			}
-			else 
-			{
-				if (left) 
-				{
-					--left; 
-					--ret;
-				}
-				else
-				{
-					++ret;
-				}	
-			}
-			// printf("%c, left:%u, ret:%u\n",ch,left,ret);
+			cin >> a[i][0] >> a[i][1];
 		}
-		cout << ret << endl;
+		
+
 	}
 
-	// char chch;
-	// while ((chch = getchar())!='q');
+	char chch;
+	while ((chch = getchar())!='q');
 	return 0;
 }
